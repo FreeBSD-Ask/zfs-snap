@@ -698,7 +698,7 @@ echo
 echo "注意：请在恢复前确保目标数据集存在且接收命令与你的备份数据来源匹配。"
 EOF
             # replace placeholder with actual path
-            sed -i "s|@DELETED_LIST@|$TMP_DELETED_LIST|g" "$TMP_UNDO_SCRIPT" 2>/dev/null || true
+            sed "s|@DELETED_LIST@|$TMP_DELETED_LIST|g" "$TMP_UNDO_SCRIPT" 2>/dev/null || true
             chmod +x "$TMP_UNDO_SCRIPT" 2>/dev/null || true
 
             bsd_textbox "将要删除的快照（已写入临时文件）" "$snapshots" 18 90
@@ -773,7 +773,7 @@ DELETED_LIST="@DELETED_LIST@"
 echo "被删除快照列表在：$DELETED_LIST"
 cat "$DELETED_LIST"
 EOF
-            sed -i "s|@DELETED_LIST@|$TMP_DELETED_LIST|g" "$TMP_UNDO_SCRIPT" 2>/dev/null || true
+            sed "s|@DELETED_LIST@|$TMP_DELETED_LIST|g" "$TMP_UNDO_SCRIPT" 2>/dev/null || true
             chmod +x "$TMP_UNDO_SCRIPT" 2>/dev/null || true
             bsd_msgbox "已写入将要删除的清单到：\n$TMP_DELETED_LIST\n并创建撤销脚本草稿：\n$TMP_UNDO_SCRIPT" 12 80
 
@@ -796,7 +796,7 @@ DELETED_LIST="@DELETED_LIST@"
 echo "被删除快照列表在：$DELETED_LIST"
 cat "$DELETED_LIST"
 EOF
-            sed -i "s|@DELETED_LIST@|$TMP_DELETED_LIST|g" "$TMP_UNDO_SCRIPT" 2>/dev/null || true
+            sed "s|@DELETED_LIST@|$TMP_DELETED_LIST|g" "$TMP_UNDO_SCRIPT" 2>/dev/null || true
             chmod +x "$TMP_UNDO_SCRIPT" 2>/dev/null || true
             bsd_msgbox "已写入将要删除的清单到：\n$TMP_DELETED_LIST\n并创建撤销脚本草稿：\n$TMP_UNDO_SCRIPT" 12 80
 
